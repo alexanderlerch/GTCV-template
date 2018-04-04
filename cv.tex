@@ -1,0 +1,33 @@
+\documentclass[letterpaper,oneside,11pt]{article}
+
+\def\version{internal} 
+
+\input{./common/packages}
+\input{./common/definitions}
+\input{./common/cv_counters}
+\input{./common/cv_format}
+
+\def\mytitle{Curriculum Vitae}
+
+\begin{document}
+
+    %titlepage
+    \input{./common/title}
+
+    \setlength{\parskip}{1pt}
+    \clearpage
+
+    \input{cv-resume}
+
+    \input{cv-honors}
+
+    \input{cv-research}
+
+    \input{cv-teaching}
+
+    \input{cv-service}
+    
+    \clearpage
+    \input{unfundedproposals}
+
+\end{document}

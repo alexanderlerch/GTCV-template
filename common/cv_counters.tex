@@ -1,0 +1,34 @@
+\newcounter{itemno}
+\newenvironment{numerate}
+    {\begin{list}{\Alph{subsection}.\arabic{itemno}}
+    {\usecounter{itemno}}}
+    {\end{list}}
+\renewcommand{\theitemno}{\Alph{subsection}.\arabic{itemno}}
+
+\newcounter{subitemno}
+\newenvironment{subnum}
+    {\begin{list}{\Alph{subsection}.\arabic{subsubsection}.\arabic{subitemno}}
+    {\usecounter{subitemno}}}
+    {\end{list}}
+\renewcommand{\theitemno}{\Alph{subsection}.\arabic{subsubsection}.\arabic{subitemno}}
+
+\newcounter{grantno}
+\newenvironment{grants}
+    {\begin{list}{\Alph{subsection}.\arabic{subsubsection}.\arabic{grantno}}
+    {\usecounter{grantno}}}
+    {\end{list}}
+\renewcommand{\thegrantno}{\Alph{subsection}.\arabic{subsubsection}.\arabic{grantno}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% bibliography numbering
+\makeatletter\renewcommand{\@biblabel}[1]{\thesubsubsection.#1}\makeatother
+
+\makeatletter
+\newcommand*{\newbibstartnumber}[1]{%
+  \apptocmd{\thebibliography}{%
+    \global\c@NAT@ctr #1\relax
+    \addtocounter{NAT@ctr}{-1}%
+  }{}{}%
+}
+\makeatother

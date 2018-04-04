@@ -1,0 +1,55 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% text typesetting
+\setlength{\parindent}{0mm}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% table of contents
+\setcounter{tocdepth}{2}
+\renewcommand\contentsname{Table of Contents}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% section numbering
+\renewcommand{\thesection}{\Roman{section}}
+\renewcommand{\thesubsection}{\Alph{subsection}}
+\renewcommand{\thesubsubsection}{\Alph{subsection}.\arabic{subsubsection}}
+
+\def\mark{$\ast$}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% grant format
+\def\funding#1#2#3#4#5#6#7{\needspace{7\baselineskip}\item{{\mark{\textsl{#1}}\vspace{-1mm}}\nopagebreak
+
+\begin{tabular}{p{.25\textwidth}p{.62\textwidth}}
+
+Sponsor:& {#2}\\
+Role:& {#7}\\ %co-PI or PI
+Collaborators:& {#3}\\
+\ifthenelse{\equal{\version}{internal}} {
+Total Dollar Amount:& {{#4}}\\
+Period of Contract:& {{#5}}\\ %7/1/2008 – 6/31/2010
+Candidate's Share:& {{#6}}} %~25% ($250K)
+{}
+\end{tabular}
+}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% advisees etc.
+\def\studentgrad#1#2#3#4#5{\item \mark{#1} {#2, {#3}.
+\newline {Topic: \textsl{#4}}
+\newline Currently: {#5}}}
+
+\def\student#1#2#3#4{\item \mark{#1} {#2, {#3}.
+\newline {Topic: \textsl{#4}}}}
+
+\def\phdqual#1#2#3#4#5{\ifthenelse{\equal{#5}{GT}}{\item }{\item }{{#1}, {#2}, {#3}.
+\newline {\textsl{Principal Advisor: #4}}}}
+
+\def\phddefense#1#2#3#4#5#6{ \ifthenelse{\equal{#6}{GT}}{\item }{\item }{{#1}, {#2}, {#4}. %[\arabic{enumi}.\ast]
+\newline {\textsl{Thesis Title: #3}}
+\newline {\textsl{Principal Advisor(s): #5}}}} % \ifthenelse{\equal{#6}{GT}}{\addtocounter{enumi}{1}}{}
+
